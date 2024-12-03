@@ -1,0 +1,83 @@
+/* Body and container */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000; /* Black background */
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  z-index: 2; /* Above the background equations */
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: beige;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  cursor: not-allowed;
+  transition: background-color 0.3s ease;
+}
+
+button:enabled {
+  background-color: #0f0; /* Green for active state */
+  cursor: pointer;
+}
+
+button:enabled:hover {
+  background-color: #0a0;
+}
+
+/* Background of equations */
+#equationBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Create columns */
+  grid-auto-rows: 2rem; /* Consistent row height */
+  align-content: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.1); /* Milky white equations */
+  font-size: 1rem;
+  animation: scrollBackground 20s linear infinite;
+}
+
+/* Smooth left-to-right scrolling */
+@keyframes scrollBackground {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+/* Highlighted equation */
+.highlighted {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
